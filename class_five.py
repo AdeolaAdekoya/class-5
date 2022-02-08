@@ -1,13 +1,29 @@
 import random
 
+# "3947809430": {
+#        "name": "lola",
+#        "dob": "06-12-10",
+#        "bvn": "1236459258",
+#        "pin": "5920",
+#        "bal" : 1500
+#    }
+
 data = {
    "3947758475": {
        "name": "desmond",
        "dob": "09-11-11",
        "bvn": "123456789",
        "pin": "1234",
-       "bal" : 0
+       "bal" : 200000
+   },
+   "3947809430": {
+       "name": "lola",
+       "dob": "06-12-10",
+       "bvn": "1236459258",
+       "pin": "5920",
+       "bal" : 1500
    }
+
 }
 
 print("welcome to astro bank app")
@@ -51,20 +67,19 @@ if choice == 'l':
 
         else:
             print("goodbye")
-# transfer
+# transfer 
         if user_input == '3':
-            depositAcc = input("enter the account number you would like to trnasfer to \n")
-            amount_Transfered = input("how much ? \n")
-            pin = input("input your pin: \n")
-            transfer = [("depositAcc", depositAcc),
-                       ("amount_Transfered", amount_Transfered)]
-   
-   
-   
-    else:
-        print("invalid login")
+            tranfer_ammount =  int(input("how much would you like to transfer? \n>"))
+            account_transfer =  input("what account would you like to transfer to  \n>")
+            recipient = data.get(account_transfer)
+            if recipient:
+               user["bal"] -= tranfer_ammount
+               recipient["bal"] += tranfer_ammount
 
 
+
+            else:
+                print("invalid login")
 # sign up 
 
 elif choice == "s":
@@ -91,10 +106,10 @@ else:
 print(data)
 
 
-num = [1,2,3,4,5,6,7,8,9,0]
+# num = [1,2,3,4,5,6,7,8,9,0]
 
-# random.shuffle(num)
-print(random.choice(num))
+# # random.shuffle(num)
+# print(random.choice(num))
 
 
 
@@ -199,7 +214,7 @@ print(random.choice(num))
 
 
 
-# # rock paper scissors game
+# rock paper scissors game
 
 # print("welcome to rock paper scissors")
 
